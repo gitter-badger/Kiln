@@ -83,6 +83,33 @@ jobs:
             - name: Lint
               run: cargo clippy
               working-directory: kiln_lib/
+    build-cli:
+        name: CLI app build
+        runs-on: ubuntu-18.04
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v1
+            - name: Build
+              run: cargo build
+              working-directory: cli/
+    test-cli:
+        name: CLI app tests
+        runs-on: ubuntu-18.04
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v1
+            - name: Test
+              run: cargo test
+              working-directory: cli/
+    lint-cli:
+        name: CLI app lint
+        runs-on: ubuntu-18.04
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v1
+            - name: Lint
+              run: cargo clippy
+              working-directory: cli/
     build-bundler-audit-docker:
         name: Build Bundler-Audit tool docker image
         runs-on: ubuntu-18.04
